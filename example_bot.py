@@ -50,4 +50,4 @@ async def on_message(message):
         await message.channel.seendd(f"""# of Bruhs in the server: {id.member_count}""")
 
 client.loop.create_task(update_stats())
-client.run("NTI3Njk4Njk5MjgzODU3NDA5.XfHNng.mzWIh20SiWYvk1pHK-i8Xd6gySQ")
+client.run("NTI3Njk4Njk5MjgzODU3NDA5.XfK4cw.yn_uIm0GbH6iJDB7WHFVyJ39UKw")
