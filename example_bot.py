@@ -47,7 +47,7 @@ async def on_message(message):
     if message.content.find("!hello") != -1:
         await message.channel.send("What's god :b:ruh!")
     elif message.content == "!users":
-        await message.channel.send(f"""# of Bruhs in the server: {id.member_count}""")
+        await message.channel.send(f"""# of :b:ruhs in the server: {id.member_count}""")
 
 client.loop.create_task(update_stats())
 client.run("NTI3Njk4Njk5MjgzODU3NDA5.XfK4cw.yn_uIm0GbH6iJDB7WHFVyJ39UKw")
