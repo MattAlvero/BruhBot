@@ -14,7 +14,7 @@ async def update_stats():
     while not client.is_closed():
         try:
             with open("stats.txt", "a") as f:
-                f.write(f"Time: {int(time.tim())}, Messages: {messages}, Members Joined: {joined}\n)
+                f.write(f"Time: {int(time.time())}, Messages: {messages}, Members Joined: {joined}\n")
 
                 messages = 0
                 joined = 0
