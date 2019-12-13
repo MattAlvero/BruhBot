@@ -16,14 +16,14 @@ async def update_stats():
             with open("stats.txt", "a") as f:
                 f.write(f"Time: {int(time.time())}, Messages: {messages}, Members Joined: {joined}\n")
 
-                messages = 0
-                joined = 0
+            messages = 0
+            joined = 0
 
-                # update every 24 hours
-                await asyncio.sleep(86400)
-            except Exception as e:
-                print(e)
-                await asyncio.sleep(86400)
+            # update every 24 hours
+            await asyncio.sleep(86400)
+        except Exception as e:
+            print(e)
+            await asyncio.sleep(86400)
 
 @client.event
 async def on_ready():
