@@ -3,7 +3,7 @@ from discord.ext import commands
 import time
 import asyncio
 
-client = commands.Bot(command_prefix='!')
+client = commands.Bot(command_prefix='!', description='BruhBot')
 
 joined = 0
 messages = 0
@@ -32,7 +32,7 @@ async def update_stats():
 
 @client.event
 async def on_ready():
-    print("We have logged in as {0.user}".format(client))
+    print('We have logged in as {0.user}'.format(client))
 
 
 @client.event
@@ -40,8 +40,8 @@ async def on_member_join(member):
     global joined
     joined += 1
     for channel in member.guild.channels:
-        if str(channel) == "normal":  # check that we are sending in normal channel
-            await channel.send_message(f"""Welcome to the server :b:ruh {member.mention}""")
+        if str(channel) == 'normal':  # check that we are sending in normal channel
+            await channel.send_message(f'Welcome to the server :b:ruh {member.mention}')
     # print to console
     print(f'{member} has joined the server')
 
@@ -51,8 +51,8 @@ async def on_member_remove(member):
     global leaving
     leaving += 1
     for channel in member.guild.channels:
-        if str(channel) == "normal":
-            await channel.send_message(f""":b:ruh has left the server {member.mention}""")
+        if str(channel) == 'normal':
+            await channel.send_message(f':b:ruh has left the server {member.mention}')
     # print to console
     print(f'{member} has left the server')
 
@@ -63,22 +63,24 @@ async def on_message(message):
     messages += 1
     print(message.content)  # Log all messages into console
 
+    await client.process_commands(message)
+
 
 @client.command()
 async def bing(ctx):
-    await ctx.send(':b:ong!')
+    await ctx.send(f':b:ong! {client.latency}')
 
 
 @client.command()
 async def hello(ctx):
-    await ctx.send("What's good :b:ruh!")
+    await ctx.send('Whats good :b:ruh!')
 
 
 @client.command()
 async def users(ctx):
     guild_id = ctx.guild
-    await ctx.send(f"""# of :b:ruhs in the server: {guild_id.member_count}""")
+    await ctx.send(f'# of :b:ruhs in the server: {guild_id.member_count}')
 
 
 client.loop.create_task(update_stats())
-client.run('NTI3Njk4Njk5MjgzODU3NDA5.Xfkegw.OiQiYaEneSuWHLPkET-OpwPe2cI')
+client.run('token')
